@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog</h1>
+    <form action="{{ url_for('add_post') }}" method="post">
+        <label>Title:</label><br>
+        <input name="title"><br><br>
+        <label for="">Author:</label><br>
+        <input name="author"><br><br>
+        <label for="">Content:</label><br>
+        <textarea name="content"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    {% for post in posts %}
+        <h2>{{post.title}}</h2>
+        <h4>Author: {{post.author}}</h4>
+        <p>{{post.content}}</p>
+    <a href="{{ url_for('edit_post', id=post.id) }}">EDIT</a>
+    <a href="{{ url_for('delete_post', id=post.id) }}">DELETE</a>
+    <br><br><hr>
+    {% endfor %}
+</body>
+</html>

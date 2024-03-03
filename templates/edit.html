@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <form action="{{ url_for('edit_post', id=post.id) }}" method="POST">
+        <label>Title:</label><br>
+        <input value="{{ post.title }}" name="title"><br><br>
+        <label for="">Author:</label><br>
+        <input value="{{ post.author }}" name="author"><br><br>
+        <label for="">Content:</label><br>
+        <textarea id="content" name="content"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+<script src="js/editPost.js"></script>
+</body>
+<script>
+    document.getElementById("content").value = "{{post.content}}"
+</script>
+</html>
