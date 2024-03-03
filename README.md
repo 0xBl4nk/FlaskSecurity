@@ -1,8 +1,8 @@
-```
-Requirements: flask, flask_sqlalchemy
-
 BLOG url: http://127.0.0.1:5000
 
+- Requirements: flask, flask_sqlalchemy
+
+```
 API:
       List Posts: GET    http://127.0.0.1:5000/api/posts
        Add Posts: PUT    http://127.0.0.1:5000/api/posts     -> Format: {"title": "", "content": "", "author":""}
