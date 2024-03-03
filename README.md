@@ -23,11 +23,13 @@ def test():
 ```
 
 ```python
-# Owasp Security
+# Owasp Security Headers
 
 @app.after_request
 def add_header(response):
-    response.headers['X-Frame-Options'] = 'DENY' # Denny Iframe's
-    response.headers['Content-Security-Policy'] = 'script-src "none"' # Deny JS scripts
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['Content-Security-Policy'] = 'script-src "none"'
+    #response.headers['Access-Control-Allow-Origin'] = 'example.com' # *, domain, null -> OBS: may be unsafe in some cases
+    #response.headers['Access-Control-Allow-Credentials'] = 'false'
     return response
 ```
