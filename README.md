@@ -1,7 +1,11 @@
-BLOG url: http://127.0.0.1:5000
+# Flask Blog
+simple unstyled blog in Flask for security training on API, XSS, SQLI, etc...
 
+
+- BLOG url: http://127.0.0.1:5000 and http://127.0.0.1:5000/test
 - Requirements: flask, flask_sqlalchemy
 
+## Api
 ```
 API:
       List Posts: GET    http://127.0.0.1:5000/api/posts
@@ -10,15 +14,16 @@ API:
     Delete Posts: DELETE http://127.0.0.1:5000/api/post/<id>
 ```
 
+## Security Code
+
 ```python
 # TEST url: http://127.0.0.1:5000/test
 
-# Don't show cookies on alert -> http=only
 @app.route('/test')
 def test():
     name = request.args.get('name')
     response = make_response(f'Hello {name}')
-    response.set_cookie('info', 'session123', httponly=True)
+    response.set_cookie('info', 'session123', httponly=True) # Don't show cookies on alert -> http=only
     return response
 ```
 
